@@ -1,0 +1,16 @@
+{
+  "name": "expense-tracker",
+  "version": "1.0.0",
+  "description": "Ian's Pizza expense tracker",
+  "main": "index.js",
+  "author": "lola-emil <staleexam19@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "@types/bcrypt": "^5.0.2",
+    "@types/validator": "^13.12.0",
+    "concurrently": "^8.2.2",
+    "nodemon": "^3.1.4"
+  },
+  "dependencies": {}
+}
