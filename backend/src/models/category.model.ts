@@ -37,3 +37,8 @@ export async function select(opt: Partial<Category>) {
     const result = await db(TBL_NAME).select().where(opt);
     return result;
 }
+
+export async function updateById(id: string, data: Partial<Category>) {
+    const result =await db<Category>(TBL_NAME).update(data).where("id", id);
+    return result;
+}
