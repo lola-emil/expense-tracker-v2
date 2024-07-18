@@ -1,7 +1,8 @@
 import { Request, Response } from "express";
 import * as RoleModel from "../../models/role.model";
-import { roleValidator } from "../../validators/role.validator";
-import { ValidationErrorResponse } from "../../middlewares/errorhandler";
+import * as RoleValidator from "../../validators/role.validator";
+import { ErrorResponse } from "../../middlewares/errorhandler";
+import Validator from "validatorjs";
 
 /**
  * Respond with list of roles
@@ -24,14 +25,14 @@ export async function createRole(req: Request, res: Response) {
     const body = req.body as RoleModel.Role;
     const userId = res.locals.userId;
 
-    const errors = roleValidator(body);
-    if (errors.length > 0)
-        throw new ValidationErrorResponse(422, errors);
+    const validation = new Validator(body, RoleValidator.addRoleRules);
+    if (validation.fails())
+        throw new ErrorResponse(422, "Unprocessable Entity", validation.errors.all());
 
     // Check if role name already exists
     const matchedRole = await RoleModel.select({ name: body.name });
     if (matchedRole.length > 0)
-        throw new ValidationErrorResponse(422, [{ path: "name", message: "Role name already exists" }]);
+        throw new ErrorResponse(422, "Unprocessable Entity", { name: ["Role name already exists"] });
 
     // Add user id who created this role
     body.created_by = userId;
@@ -52,14 +53,14 @@ export async function updateRole(req: Request, res: Response) {
     const body = req.body as RoleModel.Role;
     const userId = res.locals.userId;
 
-    const erros = roleValidator(body);
-    if (erros.length > 0)
-        throw new ValidationErrorResponse(422, erros);
+    const validation = new Validator(body, RoleValidator.addRoleRules);
+    if (validation.fails())
+        throw new ErrorResponse(422, "Unprocessable Entity", validation.errors.all());
 
     // Check if role name already exists
     const matchedRole = await RoleModel.select({ name: body.name });
     if (matchedRole.length > 0)
-        throw new ValidationErrorResponse(422, [{ path: "name", message: "Role name already exists" }]);
+        throw new ErrorResponse(422, "Unprocessable Entity", { name: ["Role name already exists"] });
 
     // Add user id who updated this role
     body.updated_by = userId

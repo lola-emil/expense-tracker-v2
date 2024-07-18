@@ -28,6 +28,11 @@
   resolved "https://registry.yarnpkg.com/@types/validator/-/validator-13.12.0.tgz#1fe4c3ae9de5cf5193ce64717c99ef2fa7d8756f"
   integrity sha512-nH45Lk7oPIJ1RVOF6JgFI6Dy0QpHEzq4QecZhvguxYPDwT8c93prCMqAtiIttm39voZ+DDR+qkNnMpJmMBRqag==
 
+"@types/validatorjs@^3.15.5":
+  version "3.15.5"
+  resolved "https://registry.yarnpkg.com/@types/validatorjs/-/validatorjs-3.15.5.tgz#91fdbefd7086701133da89b46e40b4ab22e49dcb"
+  integrity sha512-yb4ADqCqy6EzBMMLJ7mvBzFR/bCtivTPRvuvRwjdM10hpxPSdHybK6SW0ZTLPad5FGPqiZk/g70EIybxmaBAEA==
+
 ansi-regex@^5.0.1:
   version "5.0.1"
   resolved "https://registry.yarnpkg.com/ansi-regex/-/ansi-regex-5.0.1.tgz#082cb2c89c9fe8659a311a53bd6a4dc5301db304"
@@ -391,6 +396,11 @@ undici-types@~5.26.4:
   version "5.26.5"
   resolved "https://registry.yarnpkg.com/undici-types/-/undici-types-5.26.5.tgz#bcd539893d00b56e964fd2657a4866b221a65617"
   integrity sha512-JlCMO+ehdEIKqlFxk6IfVoAUVmgz7cU7zD/h9XZ0qzeosSHmUJVOzSQvvYSYWXkFXC+IfLKSIffhv0sVZup6pA==
+
+validatorjs@^3.22.1:
+  version "3.22.1"
+  resolved "https://registry.yarnpkg.com/validatorjs/-/validatorjs-3.22.1.tgz#13dbbe6556cf4ab87759105d13b1d31a9a54ce54"
+  integrity sha512-451KiCt/3E8qV/8fOUdO0YkA8zUdQBNVxubg9jvgEB+JAg9IlRKrClzwq2ir2ndj7TWmPYQ7bXFb4BxcyX2iWw==
 
 wrap-ansi@^7.0.0:
   version "7.0.0"

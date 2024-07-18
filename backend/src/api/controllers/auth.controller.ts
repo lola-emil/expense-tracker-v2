@@ -4,7 +4,9 @@ import bcrypt from "bcrypt";
 import * as UserModel from "../../models/user.model";
 import { signToken } from "../../utils/jwt.util";
 import { JWT_SECRET_KEY } from "../../config/constants";
-import { loginValidator, updatePasswordValidator } from "../../validators/user.validator";
+import * as UserValidator from "../../validators/user.validator";
+import Validator from "validatorjs";
+import { ErrorResponse } from "../../middlewares/errorhandler";
 
 
 /**
@@ -15,8 +17,9 @@ import { loginValidator, updatePasswordValidator } from "../../validators/user.v
 export async function signIn(req: Request, res: Response) {
     const user = req.body as UserModel.User;
     console.log(user);
-    const errors = loginValidator(user);
-    if (errors.length > 0) return res.status(422).json(errors);
+    const validation = new Validator(user, UserValidator.signInRules);
+    if (validation.fails())
+        throw new ErrorResponse(422, "", validation.errors.all());
 
     // Get matched user by email
     const matchedUser = await UserModel.select({ email: user.email });
@@ -42,8 +45,9 @@ export async function updateUserPassword(req: Request, res: Response) {
     const userId = res.locals.userId;
     const body = req.body;
 
-    const errors = updatePasswordValidator(body);
-    if (errors.length > 0) return res.status(422).json(errors);
+    const validation = new Validator(body, UserValidator.updatePasswordRules);
+    if (validation.fails())
+        throw new ErrorResponse(422, "", validation.errors.all());
 
     const matchedUser = await UserModel.select({ id: userId });
 

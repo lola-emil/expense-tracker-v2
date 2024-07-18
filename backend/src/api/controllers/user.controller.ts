@@ -1,8 +1,9 @@
 import { Request, Response } from "express";
 import bcrypt from "bcrypt";
 import * as UserModel from "../../models/user.model";
-import { createUserValidator, updateUserValidator } from "../../validators/user.validator";
-import { ValidationErrorResponse } from "../../middlewares/errorhandler";
+import * as UserValidator from "../../validators/user.validator";
+import Validator from "validatorjs";
+import { ErrorResponse } from "../../middlewares/errorhandler";
 
 
 /**
@@ -27,14 +28,14 @@ export async function insertUser(req: Request, res: Response) {
     const userId = res.locals.userId;
 
     // validate new user
-    const errors = createUserValidator(body);
-    if (errors.length > 0) 
-        throw new ValidationErrorResponse(422, errors);
+    const validation = new Validator(body, UserValidator.addUserRules);
+    if (validation.fails())
+        throw new ErrorResponse(422, "", validation.errors.all());
 
     const matchedUser = await UserModel.select({ email: body.email });
     // Check if email is already taken
-    if (matchedUser.length > 0) 
-        throw new ValidationErrorResponse(422, [{ path: "email", message: "Email already taken" }]);
+    // if (matchedUser.length > 0) 
+    //     throw new ValidationErrorResponse(422, [{ path: "email", message: "Email already taken" }]);
 
     // Encrypt password
     body.password = await bcrypt.hash(body.password, 10);
@@ -56,9 +57,9 @@ export async function updateUser(req: Request, res: Response) {
     const id = parseInt(req.params.id);
 
     // validate user update
-    const errors = updateUserValidator(body);
-    if (errors.length > 0) 
-        throw new ValidationErrorResponse(422, errors);
+    const validator = new Validator(body, UserValidator.updateUserRules);
+    if (validator.fails())
+        throw new ErrorResponse(422, "", validator.errors.all());
 
     // Update the 'updated_at' timestamp
     body.updated_at = new Date();

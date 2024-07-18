@@ -1,5 +1,6 @@
 import { Request, Response, NextFunction } from "express";
 import { ValidatorError } from "../utils/validation.util";
+import { ValidationErrors } from "validatorjs";
 
 
 export class ErrorResponse extends Error {
@@ -7,7 +8,7 @@ export class ErrorResponse extends Error {
     data: any;
     // errorId: string;
 
-    constructor(status: number, message?: string) {
+    constructor(status: number, message?: string, data?: any) {
         super();
 
         this.status = status;
@@ -16,18 +17,7 @@ export class ErrorResponse extends Error {
             this.message = "Internal Server Error: " + this.message;
 
         this.message = String(message);
-    }
-}
-
-export class ValidationErrorResponse<T> extends Error {
-    status: number;
-    fields: ValidatorError<T>[];
-
-    constructor(status: number, fields: ValidatorError<T>[]) {
-        super();
-
-        this.status = status;
-        this.fields = fields;
+        this.data = data;
     }
 }
 
@@ -39,13 +29,6 @@ export default function errorHandler(error: Error, req: Request, res: Response, 
         return res.status(status).json({
             status,
             message
-        });
-    } else if (error instanceof ValidationErrorResponse) {
-        const status = error.status;
-        const fields = error.fields;
-        return res.status(status).json({
-            status,
-            fields
         });
     } else {
         console.log(error);
