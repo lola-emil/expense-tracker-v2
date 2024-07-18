@@ -34,8 +34,8 @@ export async function insertUser(req: Request, res: Response) {
 
     const matchedUser = await UserModel.select({ email: body.email });
     // Check if email is already taken
-    // if (matchedUser.length > 0) 
-    //     throw new ValidationErrorResponse(422, [{ path: "email", message: "Email already taken" }]);
+    if (matchedUser.length > 0)
+        throw new ErrorResponse(422, "", { email: ["Email already taken"] });
 
     // Encrypt password
     body.password = await bcrypt.hash(body.password, 10);

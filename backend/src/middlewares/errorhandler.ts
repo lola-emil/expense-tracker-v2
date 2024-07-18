@@ -26,9 +26,11 @@ export default function errorHandler(error: Error, req: Request, res: Response, 
     if (error instanceof ErrorResponse) {
         const status = (<ErrorResponse>error).status;
         const message = (<ErrorResponse>error).message;
+        const data = (<ErrorResponse>error).data;
         return res.status(status).json({
             status,
-            message
+            message,
+            data
         });
     } else {
         console.log(error);
