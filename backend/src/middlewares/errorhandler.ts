@@ -16,7 +16,7 @@ export class ErrorResponse extends Error {
         if (this.status >= 500)
             this.message = "Internal Server Error: " + this.message;
 
-        this.message = String(message);
+        this.message = String(message ?? "");
         this.data = data;
     }
 }
