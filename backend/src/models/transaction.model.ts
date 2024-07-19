@@ -45,3 +45,14 @@ export async function select(opt: Partial<Transaction>) {
     const result = await db(TBL_NAME).select().where(opt);
     return result;
 }
+
+
+/**
+ * Update transaction by id 
+ * @param id 
+ * @param data 
+ */
+export async function updateById(id: number, data: Partial<Transaction>) {
+    const result = await db<Transaction>(TBL_NAME).update(data).where("id", id);
+    return result;
+}
