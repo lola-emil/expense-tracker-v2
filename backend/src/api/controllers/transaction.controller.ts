@@ -32,7 +32,6 @@ export async function insertTransaction(req: Request, res: Response) {
         throw new ErrorResponse(422, "", validator.errors.all());
 
     body.created_by = userId;
-    body.created_at = new Date();
 
     await TransactionModel.insert(body);
 

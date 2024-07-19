@@ -31,7 +31,6 @@ export async function insertCategory(req: Request, res: Response) {
         throw new ErrorResponse(422, "", validator.errors.all());
 
     body.created_by = userId;
-    body.created_at = new Date();
 
     // Insert new category to database
     await CategoryModel.insert(body);
