@@ -1,1 +1,1 @@
-# ians-pizza-expense-tracker
+# lanz-pizza-expense-tracker
