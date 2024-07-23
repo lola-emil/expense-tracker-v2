@@ -8,5 +8,7 @@ import { Component } from '@angular/core';
   styleUrl: './top-nav.component.css'
 })
 export class TopNavComponent {
+  constructor() {}
 
+  
 }

@@ -1,1 +1,30 @@
-<p>dashboard-page works!</p>
+
+<app-side-nav>
+    <div class="container p-5 flex gap-5">
+        <div class="flex-1">
+            <div class="flex gap-5 border-white">
+                <div class="h-40 flex-1 bg-white border border-white"></div>
+                <div class="h-40 flex-1 bg-white border border-white"></div>
+                <div class="h-40 flex-1 bg-white border border-white"></div>
+            </div>
+
+            <br>
+            <!-- Insights chart -->
+             <div class="bg-white">
+                 <app-insights-chart></app-insights-chart>
+             </div>
+
+             <br>
+
+             <div class="bg-white">
+                <app-insights-chart></app-insights-chart>
+            </div>
+        </div>
+
+        <div class="w-80">
+            <div class="h-full w-full bg-white">
+
+            </div>
+        </div>
+    </div>
+</app-side-nav>
