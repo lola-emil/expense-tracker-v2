@@ -5,7 +5,6 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './top-nav.component.html',
-  styleUrl: './top-nav.component.css'
 })
 export class TopNavComponent {
   constructor() {}

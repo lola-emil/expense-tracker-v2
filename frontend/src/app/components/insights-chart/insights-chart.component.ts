@@ -7,26 +7,59 @@ import { NgxEchartsDirective } from 'ngx-echarts';
   standalone: true,
   imports: [NgxEchartsDirective],
   templateUrl: './insights-chart.component.html',
-  styleUrl: './insights-chart.component.css'
 })
 export class InsightsChartComponent {
-  constructor() {}
+  constructor() { }
 
   chartOption: EChartsOption = {
+    title: {
+      text: "Financial Insights",
+    },
+    tooltip: {
+      trigger: "axis",
+      axisPointer: {
+      }
+    },
     xAxis: {
       type: 'category',
-      data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+      data: [
+        "January", "February", "March", "April", "May", "June",
+        "July", "August", "September", "October", "November", "December"
+      ],
     },
-    yAxis: {
-      type: 'value',
+    legend: {
+      // Try 'horizontal'
+      orient: 'horizontal',
+      // right: 10,
+      top: 0,
     },
+    grid: {
+      left: '3%',
+      right: '4%',
+      bottom: '3%',
+      containLabel: true
+    },
+    toolbox: {
+      feature: { saveAsImage: {} }
+    },
+    yAxis: {},
     series: [
       {
-        data: [820, 932, 901, 934, 1290, 1330, 1320],
-        type: 'line',
+        type: 'bar',
+        name: 'Income',
+
+        data: [89.3, 92.1, 94.4, 20.4]
       },
-    ],
+      {
+        type: 'bar',
+        name: 'Expenses',
+
+        data: [95.8, 50.4, 91.2, 76.9]
+      },
+    ]
   };
+
+
 
 
 }

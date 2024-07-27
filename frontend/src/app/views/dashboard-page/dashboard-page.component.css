@@ -1,0 +1,6 @@
+
+
+
+.dashboard {
+    @apply grid grid-cols-12 gap-5
+}
