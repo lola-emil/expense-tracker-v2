@@ -18,7 +18,9 @@ export class InsightsChartComponent {
     tooltip: {
       trigger: "axis",
       axisPointer: {
+
       }
+      
     },
     xAxis: {
       type: 'category',
@@ -28,9 +30,7 @@ export class InsightsChartComponent {
       ],
     },
     legend: {
-      // Try 'horizontal'
       orient: 'horizontal',
-      // right: 10,
       top: 0,
     },
     grid: {
