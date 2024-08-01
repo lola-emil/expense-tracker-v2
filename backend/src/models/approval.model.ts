@@ -4,8 +4,8 @@ import { db } from "../config/database";
 const TBL_NAME = "tbl_approval";
 
 type Approval = {
-    id: number,
-    approver_id: number,
+    id: string,
+    approver_id: string,
     status: "approved" | "rejected",
     comment: string,
 
@@ -13,9 +13,9 @@ type Approval = {
     updated_at: Date,
     deleted_at: Date,
 
-    created_by: number,
-    updated_by: number,
-    deleted_by: number
+    created_by: string,
+    updated_by: string,
+    deleted_by: string
 };
 
 type ApprovalField = Omit<Approval, "created_at" |

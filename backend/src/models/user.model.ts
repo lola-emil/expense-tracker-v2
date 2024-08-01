@@ -3,20 +3,20 @@ import { db } from "../config/database";
 const TBL_NAME = "tbl_user";
 
 export type User = {
-    id: number,
+    id: string,
     firstname: string,
     lastname: string,
     email: string,
     password: string,
-    role_id: number,
+    role_id: string,
 
     created_at: Date,
     updated_at: Date,
     deleted_at: Date,
 
-    created_by: number,
-    updated_by: number,
-    deleted_by: number
+    created_by: string,
+    updated_by: string,
+    deleted_by: string
 };
 
 
