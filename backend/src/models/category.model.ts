@@ -3,16 +3,16 @@ import { db } from "../config/database";
 const TBL_NAME = "tbl_category";
 
 type Category = {
-    id: string,
+    id: number,
     category_name: string,
 
     created_at: Date,
     updated_at: Date,
     deleted_at: Date,
     
-    created_by: string,
-    updated_by: string,
-    deleted_by: string
+    created_by: number,
+    updated_by: number,
+    deleted_by: number
 };
 
 type CategoryField = {

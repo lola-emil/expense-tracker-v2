@@ -35,7 +35,7 @@ export async function insertTransaction(req: Request, res: Response) {
 
     await TransactionModel.insert(body);
 
-    return res.status(200).json({ message: "ADded successfully" });
+    return res.status(200).json({ message: "Added successfully" });
 }
 
 /**

@@ -3,20 +3,25 @@ import { db } from "../config/database";
 const TBL_NAME = "tbl_transaction";
 
 type Transaction = {
-    id: string,
+    id: number,
     amount: number,
     description: string,
-    category_id: string,
+    category_id: number,
     transaction_type: "income" | "expense",
-    approval_id: string,
+    status: "approved" | "rejected" | "pending"
+
+    approval_date: Date,
+    rejected_date: Date,
+
+    remarks_id: number,
 
     created_at: Date,
     updated_at: Date,
     deleted_at: Date,
 
-    created_by: string,
-    updated_by: string,
-    deleted_by: string
+    created_by: number,
+    updated_by: number,
+    deleted_by: number
 };
 
 type TransactionField = Omit<Transaction, "created_at" |
