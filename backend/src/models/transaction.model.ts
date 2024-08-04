@@ -2,18 +2,26 @@ import { db } from "../config/database";
 
 const TBL_NAME = "tbl_transaction";
 
-type Transaction = {
+export type Transaction = {
     id: number,
-    amount: number,
     description: string,
     category_id: number,
+    
+    amount: number,
+    account_id: number,
+    paid_to: string,
+
+    date_of_payment: Date,
+    proof_of_payment: number, // foreign key for tbl_media
+    
     transaction_type: "income" | "expense",
-    status: "approved" | "rejected" | "pending"
+    status: "approved" | "rejected" | "pending",
 
     approval_date: Date,
     rejected_date: Date,
 
-    remarks_id: number,
+    approved_by: number,
+    rejected_by: number,
 
     created_at: Date,
     updated_at: Date,
@@ -24,7 +32,7 @@ type Transaction = {
     deleted_by: number
 };
 
-type TransactionField = Omit<Transaction, "created_at" |
+export type TransactionField = Omit<Transaction, "created_at" |
     "updated_at" |
     "deleted_at" |
     "created_by" |

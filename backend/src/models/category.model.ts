@@ -38,6 +38,12 @@ export async function select(opt: Partial<Category>) {
     return result;
 }
 
+/**
+ * Updates category by id
+ * @param id 
+ * @param data 
+ * @returns 
+ */
 export async function updateById(id: string, data: Partial<Category>) {
     const result =await db<Category>(TBL_NAME).update(data).where("id", id);
     return result;
