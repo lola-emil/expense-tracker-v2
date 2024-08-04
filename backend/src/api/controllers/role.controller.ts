@@ -25,14 +25,10 @@ export async function createRole(req: Request, res: Response) {
     const body = req.body as RoleModel.Role;
     const userId = res.locals.userId;
 
-    const validation = new Validator(body, RoleValidator.addRoleRules);
-    if (validation.fails())
-        throw new ErrorResponse(422, "Unprocessable Entity", validation.errors.all());
+    const errors = await RoleValidator.validateRole(body);
 
-    // Check if role name already exists
-    const matchedRole = await RoleModel.select({ name: body.name });
-    if (matchedRole.length > 0)
-        throw new ErrorResponse(422, "Unprocessable Entity", { name: ["Role name already exists"] });
+    if (errors)
+        throw new ErrorResponse(422, "", errors);
 
     // Add user id who created this role
     body.created_by = userId;
@@ -53,15 +49,10 @@ export async function updateRole(req: Request, res: Response) {
     const body = req.body as RoleModel.Role;
     const userId = res.locals.userId;
 
-    const validation = new Validator(body, RoleValidator.addRoleRules);
-    if (validation.fails())
-        throw new ErrorResponse(422, "Unprocessable Entity", validation.errors.all());
-
-    // Check if role name already exists
-    const matchedRole = await RoleModel.select({ name: body.name });
-    if (matchedRole.length > 0)
-        throw new ErrorResponse(422, "Unprocessable Entity", { name: ["Role name already exists"] });
-
+    const errors = await RoleValidator.validateRole(body);
+    if (errors)
+        throw new ErrorResponse(422, "", errors);
+    
     // Add user id who updated this role
     body.updated_by = userId
     body.updated_at = new Date();

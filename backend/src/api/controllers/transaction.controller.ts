@@ -27,9 +27,9 @@ export async function insertTransaction(req: Request, res: Response) {
     const body = req.body;
     const userId = res.locals.userId;
 
-    const validator = new Validator(body, TransactionValidator.addTransactionRules);
-    if (validator.fails())
-        throw new ErrorResponse(422, "", validator.errors.all());
+    const errors = await TransactionValidator.validateTransaction(body);
+    if (errors)
+        throw new ErrorResponse(422, "", errors);
 
     body.created_by = userId;
 

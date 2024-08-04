@@ -26,9 +26,10 @@ export async function insertCategory(req: Request, res: Response) {
     const body = req.body;
     const userId = res.locals.userId;
 
-    const validator = new Validator(body, CategoryValidator.addCategoryRules);
-    if (validator.fails())
-        throw new ErrorResponse(422, "", validator.errors.all());
+    const errors = await CategoryValidator.validateCategory(body);
+
+    if (errors)
+        throw new ErrorResponse(422, "", errors);
 
     body.created_by = userId;
 
@@ -48,9 +49,10 @@ export async function updateCategory(req: Request, res: Response) {
     const userId = res.locals.userId;
     const categoryId = req.params.id;
 
-    const validator = new Validator(body, CategoryValidator.addCategoryRules);
-    if (validator.fails())
-        throw new ErrorResponse(422, "", validator.errors.all());
+    const errors = await CategoryValidator.validateCategory(body);
+
+    if (errors)
+        throw new ErrorResponse(422, "", errors);
 
     body.created_by = userId;
     body.updated_at = new Date();
@@ -65,12 +67,12 @@ export async function updateCategory(req: Request, res: Response) {
  */
 export async function deleteCategory(req: Request, res: Response) {
     const userId = res.locals.userId;
-    const categoryId = req.params.id
+    const categoryId = req.params.id;
 
     await CategoryModel.updateById(categoryId, {
         deleted_at: new Date(),
         deleted_by: userId
     });
 
-    return res.status(200).json({ message: "Deleted successfully" })
+    return res.status(200).json({ message: "Deleted successfully" });
 }

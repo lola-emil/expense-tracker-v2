@@ -2,7 +2,7 @@ import { db } from "../config/database";
 
 const TBL_NAME = "tbl_category";
 
-type Category = {
+export type Category = {
     id: number,
     category_name: string,
 
@@ -15,7 +15,7 @@ type Category = {
     deleted_by: number
 };
 
-type CategoryField = {
+export type CategoryField = {
     category_name: string
 };
 
