@@ -39,7 +39,7 @@ export async function insert(data: Account) {
  * @returns 
  */
 export async function select(opt: Partial<Account>) {
-    const res = await db<Account>(TBL_NAME).select(opt);
+    const res = await db<Account>(TBL_NAME).select().where(opt);
     return res;
 }
 

@@ -15,7 +15,8 @@ export type Transaction = {
     proof_of_payment: number, // foreign key for tbl_media
     
     transaction_type: "income" | "expense",
-    status: "approved" | "rejected" | "pending",
+
+    remarks_id: number,
 
     approval_date: Date,
     rejected_date: Date,

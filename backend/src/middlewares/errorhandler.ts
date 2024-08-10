@@ -1,6 +1,4 @@
 import { Request, Response, NextFunction } from "express";
-import { ValidatorError } from "../utils/validation.util";
-import { ValidationErrors } from "validatorjs";
 
 
 export class ErrorResponse extends Error {

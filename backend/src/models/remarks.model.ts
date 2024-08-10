@@ -1,10 +1,10 @@
-import { Result } from "express-validator";
 import { db } from "../config/database";
 
 
 const TBL_NAME = "tbl_remarks";
 export type Remarks = {
     id: number,
+    status: "approved" | "rejected"
     comment: string,
     transaction_id: number,
     
@@ -39,7 +39,7 @@ export async function insert(data: RemarksField) {
  * @returns - returns list of remarks
  */
 export async function select(opt: Partial<Remarks>) {
-    const res = await db<Remarks>(TBL_NAME).select(opt);
+    const res = await db<Remarks>(TBL_NAME).select().where(opt);
     return res;
 }
 
