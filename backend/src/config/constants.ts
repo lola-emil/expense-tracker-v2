@@ -13,4 +13,8 @@ export const HOSTNAME = process.env["SERVER_HOST"] ?? "localhost";
 export const PORT = parseInt(process.env["SERVER_PORT"] ?? "5000");
 
 
-export const JWT_SECRET_KEY = "secret-key";
+export const JWT_SECRET_KEY = process.env["JWT_SECRET_KEY"] ?? "";
+
+
+export const SERVICE_KEY = process.env["SERVICE_KEY"] ?? "";
+export const PROJECT_ID = process.env["PROJECT_ID"] ?? "";
