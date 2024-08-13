@@ -1,20 +1,10 @@
 import { db } from "../config/database";
 
-const TBL_NAME = "tbl_transaction";
+export const TBL_NAME = "tbl_transaction";
 
 export type Transaction = {
     id: number,
     description: string,
-    category_id: number,
-    
-    amount: number,
-    account_id: number,
-    paid_to: string,
-
-    date_of_payment: Date,
-    proof_of_payment: number, // foreign key for tbl_media
-    
-    transaction_type: "income" | "expense",
 
     remarks_id: number,
 
