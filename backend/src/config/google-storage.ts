@@ -3,7 +3,7 @@ import path from "path";
 import { PROJECT_ID, SERVICE_KEY } from "./constants";
 
 const storage = new Storage({
-    keyFilename: path.join(__dirname, SERVICE_KEY),
+    keyFilename: path.resolve(__dirname, "..", "..", SERVICE_KEY),
     projectId: PROJECT_ID
 });
 

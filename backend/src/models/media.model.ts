@@ -1,7 +1,7 @@
 import { db } from "../config/database";
 
 const TBL_NAME = "tbl_media";
-type Media = {
+export type Media = {
     id: number,
     filename: string,
     extname: string,
@@ -16,7 +16,7 @@ type Media = {
     deleted_by: number
 };
 
-type MediaField = Omit<Media, "created_at" |
+export type MediaField = Omit<Media, "created_at" |
     "updated_at" |
     "deleted_at" |
     "created_by" |

@@ -9,8 +9,8 @@ export const DB_PORT = parseInt(process.env["DB_PORT"] ?? "3306");
 export const DB_HOST = process.env["DB_HOST"] ?? "localhost";
 
 
-export const HOSTNAME = process.env["SERVER_HOST"] ?? "localhost";
-export const PORT = parseInt(process.env["SERVER_PORT"] ?? "5000");
+export const HOSTNAME = process.env["HOST"] ?? "localhost";
+export const PORT = parseInt(process.env["PORT"] ?? "5000");
 
 
 export const JWT_SECRET_KEY = process.env["JWT_SECRET_KEY"] ?? "";
