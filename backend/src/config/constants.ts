@@ -18,3 +18,6 @@ export const JWT_SECRET_KEY = process.env["JWT_SECRET_KEY"] ?? "";
 
 export const SERVICE_KEY = process.env["SERVICE_KEY"] ?? "";
 export const PROJECT_ID = process.env["PROJECT_ID"] ?? "";
+
+export const PROCESSOR_ID = process.env["PROCESSOR_ID"] ?? "";
+export const PROJECT_LOCATION = process.env["PROJECT_LOCATION"] ?? "";
