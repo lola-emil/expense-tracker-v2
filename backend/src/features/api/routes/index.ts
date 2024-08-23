@@ -1,6 +1,6 @@
 import { Router } from "express";
 
-import authorization from "../../middlewares/authorization";
+import authorization from "../../../middlewares/authorization";
 
 import authRouter from "./auth.route";
 import userRouter from "./user.route";

@@ -1,6 +1,6 @@
 import { Router } from "express";
 
-import asyncHandler from "../../middlewares/asynchandler";
+import asyncHandler from "../../../middlewares/asynchandler";
 import * as RoleController from "../controllers/role.controller";
 
 const  router = Router();

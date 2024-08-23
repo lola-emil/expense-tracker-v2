@@ -4,7 +4,7 @@ import cors from "cors";
 import { PORT, HOSTNAME } from "./config/constants";
 import errorHandler, { ErrorResponse } from "./middlewares/errorhandler";
 
-import apiRouter from "./api/routes";
+import apiRouter from "./features/api/routes";
 
 const app = express();
 

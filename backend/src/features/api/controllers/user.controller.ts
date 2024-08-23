@@ -1,9 +1,9 @@
 import { Request, Response } from "express";
 import bcrypt from "bcrypt";
-import * as UserModel from "../../models/user.model";
-import * as UserValidator from "../../validators/user.validator";
+import * as UserModel from "../../../models/user.model";
+import * as UserValidator from "../../../validators/user.validator";
 import Validator from "validatorjs";
-import { ErrorResponse } from "../../middlewares/errorhandler";
+import { ErrorResponse } from "../../../middlewares/errorhandler";
 
 
 /**

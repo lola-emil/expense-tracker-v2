@@ -1,11 +1,11 @@
 import { Request, Response } from "express";
 import bcrypt from "bcrypt";
 
-import * as UserModel from "../../models/user.model";
-import { signToken } from "../../utils/jwt.util";
-import { JWT_SECRET_KEY } from "../../config/constants";
-import * as UserValidator from "../../validators/user.validator";
-import { ErrorResponse } from "../../middlewares/errorhandler";
+import * as UserModel from "../../../models/user.model";
+import { signToken } from "../../../utils/jwt.util";
+import { JWT_SECRET_KEY } from "../../../config/constants";
+import * as UserValidator from "../../../validators/user.validator";
+import { ErrorResponse } from "../../../middlewares/errorhandler";
 
 
 /**

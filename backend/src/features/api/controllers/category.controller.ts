@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
-import * as CategoryValidator from "../../validators/category.validator";
-import * as CategoryModel from "../../models/category.model";
-import { ErrorResponse } from "../../middlewares/errorhandler";
+import * as CategoryValidator from "../../../validators/category.validator";
+import * as CategoryModel from "../../../models/category.model";
+import { ErrorResponse } from "../../../middlewares/errorhandler";
 
 
 /**

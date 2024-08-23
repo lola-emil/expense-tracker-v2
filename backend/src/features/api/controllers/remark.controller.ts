@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import * as RemarkModel from "../../models/remarks.model";
+import * as RemarkModel from "../../../models/remarks.model";
 
 
 export async function getRemarks(req: Request, res: Response) {

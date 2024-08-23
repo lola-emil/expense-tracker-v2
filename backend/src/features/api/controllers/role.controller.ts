@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
-import * as RoleModel from "../../models/role.model";
-import * as RoleValidator from "../../validators/role.validator";
-import { ErrorResponse } from "../../middlewares/errorhandler";
+import * as RoleModel from "../../../models/role.model";
+import * as RoleValidator from "../../../validators/role.validator";
+import { ErrorResponse } from "../../../middlewares/errorhandler";
 
 
 /**

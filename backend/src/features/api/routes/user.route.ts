@@ -1,8 +1,7 @@
 import { Request, Response, Router } from "express";
-import * as UserValidator from "../../validators/user.validator";
-import asyncHandler from "../../middlewares/asynchandler";
+import asyncHandler from "../../../middlewares/asynchandler";
 import * as UserController from "../controllers/user.controller";
-import authorization from "../../middlewares/authorization";
+import authorization from "../../../middlewares/authorization";
 
 const router = Router();
 

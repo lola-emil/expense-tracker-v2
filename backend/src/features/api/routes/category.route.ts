@@ -1,5 +1,5 @@
 import { Router } from "express";
-import asyncHandler from "../../middlewares/asynchandler";
+import asyncHandler from "../../../middlewares/asynchandler";
 import * as CategoryController from "../controllers/category.controller";
 
 

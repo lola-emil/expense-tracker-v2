@@ -1,8 +1,8 @@
 import { Request, Response } from "express";
-import * as TransactionModel from "../../models/transaction.model";
+import * as TransactionModel from "../../../models/transaction.model";
 import Validator from "validatorjs";
-import * as TransactionValidator from "../../validators/transaction.validator";
-import { ErrorResponse } from "../../middlewares/errorhandler";
+import * as TransactionValidator from "../../../validators/transaction.validator";
+import { ErrorResponse } from "../../../middlewares/errorhandler";
 
 
 /**

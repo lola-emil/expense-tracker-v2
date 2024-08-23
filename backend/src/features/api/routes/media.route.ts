@@ -1,6 +1,6 @@
 import { Router } from "express";
 import * as MediaController from "../controllers/media.controller"
-import asyncHandler from "../../middlewares/asynchandler";
+import asyncHandler from "../../../middlewares/asynchandler";
 
 import fileUpload from "express-fileupload";
 

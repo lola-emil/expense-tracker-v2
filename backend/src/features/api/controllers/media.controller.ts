@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
-import * as MediaModel from "../../models/media.model";
-import uploadToBucket from "../../utils/upload-to-bucket.util";
+import * as MediaModel from "../../../models/media.model";
+import uploadToBucket from "../../../utils/upload-to-bucket.util";
 
 
 /**
