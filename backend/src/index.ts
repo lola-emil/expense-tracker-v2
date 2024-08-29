@@ -5,6 +5,7 @@ import { PORT, HOSTNAME } from "./config/constants";
 import errorHandler, { ErrorResponse } from "./middlewares/errorhandler";
 
 import apiRouter from "./features/api/routes";
+import documentAIRouter from "./features/processor/routes";
 
 const app = express();
 
@@ -15,8 +16,9 @@ app.use(helmet());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-// Add API routes
-app.use(apiRouter);
+// Add routers
+app.use("/api", apiRouter);
+app.use("/document-ai", documentAIRouter);
 
 // 404 Error
 app.use("*", (req, res) => {
