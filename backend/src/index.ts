@@ -5,7 +5,7 @@ import { PORT, HOSTNAME } from "./config/constants";
 import errorHandler, { ErrorResponse } from "./middlewares/errorhandler";
 
 import apiRouter from "./features/api/routes";
-import documentAIRouter from "./features/processor/routes";
+import documentAIRouter from "./features/document-ai/routes";
 
 const app = express();
 
