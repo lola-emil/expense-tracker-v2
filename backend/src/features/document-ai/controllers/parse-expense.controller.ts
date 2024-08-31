@@ -7,6 +7,9 @@ import { PROCESSOR_ID, PROJECT_ID, PROJECT_LOCATION } from "../../../config/cons
 export async function parseExpense(req: Request, res: Response) {
     const image = req.files!.image as UploadedFile;
 
+    /**
+     * TODO: need validation for file's mimeType
+     */
 
     const name = `projects/${PROJECT_ID}/locations/${PROJECT_LOCATION}/processors/${PROCESSOR_ID}`;
     const encodedImage = Buffer.from(image.data).toString("base64");

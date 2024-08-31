@@ -1,7 +1,7 @@
 import { Request, Response, Router } from "express";
 import asyncHandler from "../../../middlewares/asynchandler";
 import * as UserController from "../controllers/user.controller";
-import authorization from "../../../middlewares/authorization";
+import authentication from "../../../middlewares/authentication";
 
 const router = Router();
 

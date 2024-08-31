@@ -1,6 +1,6 @@
 import { Router } from "express";
 
-import authorization from "../../../middlewares/authorization";
+import authentication from "../../../middlewares/authentication";
 
 import authRouter from "./auth.route";
 import userRouter from "./user.route";
@@ -14,11 +14,11 @@ const router = Router();
 
 
 router.use("/auth", authRouter);
-router.use("/users", authorization, userRouter);
-router.use("/roles", authorization, roleRouter)
-router.use("/categories", authorization, categoryRouter);
-router.use("/transactions", authorization, transactionRouter);
-router.use("/remarks", authorization, remarkRouter);
-router.use("/media", authorization, mediaRouter);
+router.use("/users", authentication, userRouter);
+router.use("/roles", authentication, roleRouter)
+router.use("/categories", authentication, categoryRouter);
+router.use("/transactions", authentication, transactionRouter);
+router.use("/remarks", authentication, remarkRouter);
+router.use("/media", authentication, mediaRouter);
 
 export default router;
