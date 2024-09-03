@@ -1,8 +1,7 @@
 import { Routes } from '@angular/router';
 import { HomePageComponent } from './views/home-page/home-page.component';
+import { SigninPageComponent } from './views/signin-page/signin-page.component';
 import { PageNotFoundComponent } from './views/page-not-found/page-not-found.component';
-import { SignInPageComponent } from './views/sign-in-page/sign-in-page.component';
-import { DashboardPageComponent } from './views/dashboard-page/dashboard-page.component';
 
 export const routes: Routes = [
     {
@@ -11,12 +10,11 @@ export const routes: Routes = [
     },
     {
         path: "signin",
-        component: SignInPageComponent
+        component: SigninPageComponent
     },
-    {
-        path: "dashboard",
-        component: DashboardPageComponent
-    },
+    
+
+    // Page Not Found
     {
         path: "**",
         component: PageNotFoundComponent
