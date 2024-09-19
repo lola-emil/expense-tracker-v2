@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import * as MediaModel from "../../../models/media.model";
+import * as MediaModel from "../../../models/document.model";
 import uploadToBucket from "../../../utils/upload-to-bucket.util";
 
 
@@ -9,7 +9,7 @@ import uploadToBucket from "../../../utils/upload-to-bucket.util";
  * @param res 
  * @returns 
  */
-export async function getMedia(req: Request, res: Response) {
+export async function get(req: Request, res: Response) {
     const id = parseInt(req.params.id);
     const media = await MediaModel.select({ id });
 
@@ -23,7 +23,7 @@ export async function getMedia(req: Request, res: Response) {
  * @param res 
  * @returns 
  */
-export async function addMedia(req: Request, res: Response) {
+export async function save(req: Request, res: Response) {
     const body = req.body;
     const userId = res.locals.userId;
 

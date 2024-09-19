@@ -1,5 +1,5 @@
 import { Router } from "express";
-import * as MediaController from "../controllers/media.controller"
+import * as DocumentController from "../controllers/document.controller"
 import asyncHandler from "../../../middlewares/asynchandler";
 
 import fileUpload from "express-fileupload";
@@ -8,8 +8,8 @@ const router = Router();
 
 router.use(fileUpload());
 
-router.get("/:id", asyncHandler(MediaController.getMedia));
+router.get("/:id", asyncHandler(DocumentController.get));
 
-router.post("/", asyncHandler(MediaController.addMedia));
+router.post("/", asyncHandler(DocumentController.save));
 
 export default router;

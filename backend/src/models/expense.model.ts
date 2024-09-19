@@ -9,7 +9,7 @@ export type Expense = {
     tin_no: string,
 
     date_of_payment: Date,
-    proof_of_payment: number, // foreign key for tbl_media
+    supporting_document_id: number, // foreign key for tbl_media
     receipt_date: Date,
 
     transaction_id: number,
