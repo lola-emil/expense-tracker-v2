@@ -8,7 +8,7 @@ import roleRouter from "./role.route";
 import categoryRouter from "./category.route";
 import transactionRouter from "./transaction.route";
 import remarkRouter from "./remark.route";
-import mediaRouter from "./media.route";
+import documentRouter from "./document.route";
 
 const router = Router();
 
@@ -19,6 +19,6 @@ router.use("/roles", authentication, roleRouter)
 router.use("/categories", authentication, categoryRouter);
 router.use("/transactions", authentication, transactionRouter);
 router.use("/remarks", authentication, remarkRouter);
-router.use("/media", authentication, mediaRouter);
+router.use("/media", authentication, documentRouter);
 
 export default router;
