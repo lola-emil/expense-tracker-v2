@@ -14,11 +14,14 @@ const router = Router();
 
 
 router.use("/auth", authRouter);
-router.use("/users", authentication, userRouter);
-router.use("/roles", authentication, roleRouter)
-router.use("/categories", authentication, categoryRouter);
-router.use("/transactions", authentication, transactionRouter);
-router.use("/remarks", authentication, remarkRouter);
-router.use("/media", authentication, documentRouter);
+
+router.use(authentication);
+
+router.use("/users", userRouter);
+router.use("/roles", roleRouter)
+router.use("/categories", categoryRouter);
+router.use("/transactions", transactionRouter);
+router.use("/remarks", remarkRouter);
+router.use("/media", documentRouter);
 
 export default router;
