@@ -9,7 +9,10 @@ export async function parseExpense(req: Request, res: Response) {
     const image = req.files!.image as UploadedFile;
     const supportedTypes = ["application/pdf", "image/gif", "image/tiff", "image/jpeg", "image/png", "image/bmp", "image/webp", "text/html"];
 
-    console.log(image.size > 2e+7);
+    const name = `projects/${PROJECT_ID}/locations/${PROJECT_LOCATION}/processors/${PROCESSOR_ID}`;
+    const encodedImage = Buffer.from(image.data).toString("base64");
+
+
 
     // Check if file is valid
     if (!supportedTypes.includes(image.mimetype))
@@ -22,11 +25,7 @@ export async function parseExpense(req: Request, res: Response) {
             image: ["Maximum file size is 20MB"]
         });
 
-    const name = `projects/${PROJECT_ID}/locations/${PROJECT_LOCATION}/processors/${PROCESSOR_ID}`;
-    const encodedImage = Buffer.from(image.data).toString("base64");
-
     const client = new DocumentProcessorServiceClient();
-
     const [result] = await client.processDocument({
         name,
         rawDocument: {

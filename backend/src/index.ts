@@ -6,6 +6,7 @@ import errorHandler, { ErrorResponse } from "./middlewares/errorhandler";
 
 import apiRouter from "./features/api/routes";
 import documentAIRouter from "./features/document-ai/routes";
+import Logger from "./utils/logger.util";
 
 const app = express();
 
@@ -22,10 +23,12 @@ app.use("/document-ai", documentAIRouter);
 
 // 404 Error
 app.use("*", (req, res) => {
-    throw new ErrorResponse(404, `Can't ${req.method} ${req.originalUrl}`);
+    let message = `Can't ${req.method} ${req.originalUrl}`;
+    Logger.error(message);
+    throw new ErrorResponse(404, message);
 });
 
 // Add error handler
 app.use(errorHandler);
 
-app.listen(PORT, HOSTNAME, () => console.log(`Server running on port ${PORT}`));
+app.listen(PORT, HOSTNAME, () => Logger.success(`Server running on http://${HOSTNAME}:${PORT}`));

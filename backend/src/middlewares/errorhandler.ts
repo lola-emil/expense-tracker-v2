@@ -1,4 +1,5 @@
 import { Request, Response, NextFunction } from "express";
+import Logger from "../utils/logger.util";
 
 
 export class ErrorResponse extends Error {
@@ -31,7 +32,7 @@ export default function errorHandler(error: Error, req: Request, res: Response, 
             data
         });
     } else {
-        console.log(error);
+        Logger.error("Internal Server Error: " + error.message)
         return res.status(500).json({
             status: 500,
             message: "Internal Server Error: " + error.message

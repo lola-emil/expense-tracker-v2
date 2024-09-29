@@ -2,6 +2,8 @@ import { Request, Response, NextFunction } from "express";
 import { JWT_SECRET_KEY } from "../config/constants";
 import { verifyToken } from "../utils/jwt.util";
 import { ErrorResponse } from "./errorhandler";
+import { JsonWebTokenError } from "jsonwebtoken";
+import Logger from "../utils/logger.util";
 
 
 export default async function authentication(req: Request, res: Response, next: NextFunction) {
@@ -20,7 +22,7 @@ export default async function authentication(req: Request, res: Response, next: 
 
         return next();
     } catch (error) {
-        console.log(error);
+        Logger.warning((error as JsonWebTokenError).message);
         return next(new ErrorResponse(401, "Unauthorized: Invalid token"));
     }
 }
