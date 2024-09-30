@@ -21,3 +21,5 @@ export const PROJECT_ID = process.env["PROJECT_ID"] ?? "";
 
 export const PROCESSOR_ID = process.env["PROCESSOR_ID"] ?? "";
 export const PROJECT_LOCATION = process.env["PROJECT_LOCATION"] ?? "";
+
+export const GEMINI_API_KEY = process.env["GEMINI_API_KEY"] ?? "";
