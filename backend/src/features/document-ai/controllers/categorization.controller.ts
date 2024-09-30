@@ -79,6 +79,6 @@ export async function categorize(req: Request, res: Response) {
 
     return res.status(200).json({
         input,
-        result: result.response.text()
+        output: result.response.text()
     });
 }

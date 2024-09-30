@@ -14,7 +14,7 @@ router.use(fileUpload());
 // Parse expense
 router.post("/expense-parser", asyncHandler(parseExpense));
 
-router.post("/categoriziation", asyncHandler(categorize))
+router.get("/categorize", asyncHandler(categorize))
 
 
 export default router;
