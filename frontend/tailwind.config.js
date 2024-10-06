@@ -10,7 +10,7 @@ module.exports = {
     extend: {},
   },
   daisyui: {
-    themes: ["business"]
+    themes: ["sunset"]
   },
   plugins: [
     require("daisyui")
