@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 
-
 type FormError = {
   email?: string,
   password?: string
@@ -18,6 +17,7 @@ export class SigninPageComponent {
   error: FormError = {
     email: ""
   };
-  loading = true;
+
+  loading = false;
 
 }
