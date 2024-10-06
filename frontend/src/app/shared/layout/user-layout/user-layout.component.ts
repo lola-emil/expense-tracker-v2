@@ -6,7 +6,6 @@ import { NavbarComponent } from "../../components/navbar/navbar.component";
   standalone: true,
   imports: [NavbarComponent],
   templateUrl: './user-layout.component.html',
-  styleUrl: './user-layout.component.css'
 })
 export class UserLayoutComponent {
 

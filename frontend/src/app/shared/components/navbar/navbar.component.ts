@@ -1,4 +1,3 @@
-import { NgFor } from '@angular/common';
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
@@ -9,12 +8,17 @@ type Menu = {
   children?: Menu[]
 };
 
+
+type Notification = {
+  title: string,
+  date: string,
+};
+
 @Component({
   selector: 'app-navbar',
   standalone: true,
   imports: [RouterLink],
   templateUrl: './navbar.component.html',
-  styleUrl: './navbar.component.css'
 })
 export class NavbarComponent {
 
@@ -34,5 +38,7 @@ export class NavbarComponent {
       path: "" 
     },
   ];
+
+  notifications: Notification[] = [];
 
 }
