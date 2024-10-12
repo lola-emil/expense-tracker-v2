@@ -14,9 +14,6 @@ export class LineChartComponent {
 
 
   chartOptions: EChartsOption = {
-    title: {
-      text: 'Basic Line Chart',
-    },
     tooltip: {
       trigger: 'axis',
     },
@@ -43,12 +40,15 @@ export class LineChartComponent {
       containLabel: true, // Makes sure labels don't overlap with chart edges
     },
     series: [{
-      data: [120, 200, 150, 80, 70, 110, 130, 130],
-      type: 'line',
-      smooth: true, // Makes the line smooth instead of sharp
-      lineStyle: {
-        color: "#ff0000"
+      itemStyle: {
+        borderRadius: [10, 10, 0, 0]
       },
+      data: [120, 200, 150, 80, 70, 110, 130, 130],
+      type: 'bar',
+      // smooth: true, // Makes the line smooth instead of sharp
+      // lineStyle: {
+      //   color: "#ff0000"
+      // },
 
     }],
   };
