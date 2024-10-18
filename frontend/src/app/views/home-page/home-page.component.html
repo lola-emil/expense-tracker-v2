@@ -4,9 +4,9 @@
   <br>
 
   <div class="flex gap-3">
-    <button class="btn btn-sm btn-primary">Daily</button>
-    <button class="btn btn-sm btn-ghost">Weekly</button>
-    <button class="btn btn-sm btn-ghost">Monthly</button>
+    <button (click)="updateByTime()" class="btn btn-sm btn-ghost" [ngClass]="{'btn-primary' : daily}">Daily</button>
+    <button (click)="updateByTime()" class="btn btn-sm btn-ghost">Weekly</button>
+    <button (click)="updateByTime()" class="btn btn-sm btn-ghost">Monthly</button>
   </div>
   <div class="flex w-full gap-5 mt-5">
 
@@ -17,19 +17,19 @@
           <h3 class="text-xl mb-3">Overview</h3>
           <div class="flex gap-5 justify-between">
             <div>
-               <h3 class="text-4xl">{{ totalExpense | currency: 'PHP' }}</h3>
-               <p class="text-lg text-gray-600">Total Expense</p>
+              <h3 class="text-4xl">{{ totalExpense | currency: 'PHP' }}</h3>
+              <p class="text-lg text-gray-600">Total Expense</p>
             </div>
 
             <div class="">
               <h3 class="text-4xl text-center">13</h3>
               <p class="text-lg text-gray-600">Pending Approvals</p>
-           </div>
+            </div>
 
-           <div>
-            <h3 class="text-4xl text-center">7</h3>
-            <p class="text-lg text-gray-600">Unsubmitted</p>
-         </div>
+            <div>
+              <h3 class="text-4xl text-center">7</h3>
+              <p class="text-lg text-gray-600">Unsubmitted</p>
+            </div>
           </div>
         </div>
       </div>
@@ -42,7 +42,7 @@
           <div>
             <!-- Mao ni diri ang line chart -->
 
-            <app-line-chart/>
+            <app-line-chart />
           </div>
         </div>
       </div>
@@ -53,54 +53,54 @@
     <!-- Doughnut chart -->
     <div class="card bg-base-200 min-w-96 shadow">
       <div class="card-body">
-        <app-doughnut-chart/>
+        <app-doughnut-chart />
 
         <div class="flex flex-col gap-4">
           <div class="flex justify-between items-center w-full">
-              <div>
-                  <p>Subscription</p>
-              </div>
-              <div>
-                  5%
-              </div>
-          </div>
-
-          <div class="flex justify-between items-center w-full">
-              <div>
-                  <p>Food</p>
-              </div>
-              <div>
-                  7%
-              </div>
-          </div>
-
-          <div class="flex justify-between items-center w-full">
-              <div>
-                  <p>Utility</p>
-              </div>
-              <div>
-                  15%
-              </div>
+            <div>
+              <p>Subscription</p>
+            </div>
+            <div>
+              5%
+            </div>
           </div>
 
           <div class="flex justify-between items-center w-full">
             <div>
-                <p>Marketing</p>
+              <p>Food</p>
             </div>
             <div>
-                25%
+              7%
             </div>
-        </div>
+          </div>
 
-        <div class="flex justify-between items-center w-full">
-          <div>
+          <div class="flex justify-between items-center w-full">
+            <div>
+              <p>Utility</p>
+            </div>
+            <div>
+              15%
+            </div>
+          </div>
+
+          <div class="flex justify-between items-center w-full">
+            <div>
+              <p>Marketing</p>
+            </div>
+            <div>
+              25%
+            </div>
+          </div>
+
+          <div class="flex justify-between items-center w-full">
+            <div>
               <p>Equipments</p>
-          </div>
-          <div>
+            </div>
+            <div>
               35%
+            </div>
           </div>
-      </div>
-      </div>
+        </div>
       </div>
     </div>
 
@@ -116,125 +116,34 @@
           <thead>
             <tr>
 
-              <th>Name</th>
-              <th>Job</th>
-              <th>Favorite Color</th>
+              <th>Transaction No.</th>
+              <th>Vendor</th>
+              <th>Date</th>
+              <th>Amount</th>
+              <th>Status</th>
               <th></th>
             </tr>
           </thead>
           <tbody>
             <!-- row 1 -->
-            <tr>
 
+            @for (activity of recentActivities; track $index) {
+            <tr>
+              <td>{{ activity.transactionNumber }}</td>
+              <td>{{ activity.vendor }}</td>
+              <td>{{ activity.date }}</td>
+              <td>{{ activity.amount | currency: "PHP" }}</td>
               <td>
-                <div class="flex items-center gap-3">
-                  <div class="avatar">
-                    <div class="mask mask-squircle h-12 w-12">
-                      <img
-                        src="https://img.daisyui.com/images/profile/demo/2@94.webp"
-                        alt="Avatar Tailwind CSS Component" />
-                    </div>
-                  </div>
-                  <div>
-                    <div class="font-bold">Hart Hagerty</div>
-                    <div class="text-sm opacity-50">United States</div>
-                  </div>
+                <div class="badge">
+                  {{ activity.status }}
                 </div>
               </td>
-              <td>
-                Zemlak, Daniel and Leannon
-                <br />
-                <span class="badge badge-ghost badge-sm">Desktop Support Technician</span>
-              </td>
-              <td>Purple</td>
               <th>
                 <button class="btn btn-ghost btn-xs">details</button>
               </th>
             </tr>
-            <!-- row 2 -->
-            <tr>
+            }
 
-              <td>
-                <div class="flex items-center gap-3">
-                  <div class="avatar">
-                    <div class="mask mask-squircle h-12 w-12">
-                      <img
-                        src="https://img.daisyui.com/images/profile/demo/3@94.webp"
-                        alt="Avatar Tailwind CSS Component" />
-                    </div>
-                  </div>
-                  <div>
-                    <div class="font-bold">Brice Swyre</div>
-                    <div class="text-sm opacity-50">China</div>
-                  </div>
-                </div>
-              </td>
-              <td>
-                Carroll Group
-                <br />
-                <span class="badge badge-ghost badge-sm">Tax Accountant</span>
-              </td>
-              <td>Red</td>
-              <th>
-                <button class="btn btn-ghost btn-xs">details</button>
-              </th>
-            </tr>
-            <!-- row 3 -->
-            <tr>
-
-              <td>
-                <div class="flex items-center gap-3">
-                  <div class="avatar">
-                    <div class="mask mask-squircle h-12 w-12">
-                      <img
-                        src="https://img.daisyui.com/images/profile/demo/4@94.webp"
-                        alt="Avatar Tailwind CSS Component" />
-                    </div>
-                  </div>
-                  <div>
-                    <div class="font-bold">Marjy Ferencz</div>
-                    <div class="text-sm opacity-50">Russia</div>
-                  </div>
-                </div>
-              </td>
-              <td>
-                Rowe-Schoen
-                <br />
-                <span class="badge badge-ghost badge-sm">Office Assistant I</span>
-              </td>
-              <td>Crimson</td>
-              <th>
-                <button class="btn btn-ghost btn-xs">details</button>
-              </th>
-            </tr>
-            <!-- row 4 -->
-            <tr>
-
-              <td>
-                <div class="flex items-center gap-3">
-                  <div class="avatar">
-                    <div class="mask mask-squircle h-12 w-12">
-                      <img
-                        src="https://img.daisyui.com/images/profile/demo/5@94.webp"
-                        alt="Avatar Tailwind CSS Component" />
-                    </div>
-                  </div>
-                  <div>
-                    <div class="font-bold">Yancy Tear</div>
-                    <div class="text-sm opacity-50">Brazil</div>
-                  </div>
-                </div>
-              </td>
-              <td>
-                Wyman-Ledner
-                <br />
-                <span class="badge badge-ghost badge-sm">Community Outreach Specialist</span>
-              </td>
-              <td>Indigo</td>
-              <th>
-                <button class="btn btn-ghost btn-xs">details</button>
-              </th>
-            </tr>
           </tbody>
         </table>
       </div>

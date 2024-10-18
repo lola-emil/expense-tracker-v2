@@ -3,10 +3,20 @@ import { NgxEchartsDirective, NgxEchartsModule } from 'ngx-echarts';
 import { EChartsOption } from 'echarts';
 
 
+const colors = [
+  "#f87171",
+  "#fbbf24",
+  "#4ade80",
+  "#3b82f6",
+  "#d946ef",
+  "#ec4899",
+  "#ec4899"
+];
+
 @Component({
   selector: 'app-doughnut-chart',
   standalone: true,
-  imports: [NgxEchartsDirective, NgxEchartsModule],
+  imports: [NgxEchartsDirective],
   templateUrl: './doughnut-chart.component.html',
   styleUrl: './doughnut-chart.component.css'
 })
@@ -49,5 +59,5 @@ export class DoughnutChartComponent {
         ]
       }
     ]
-  };;
+  };
 }
