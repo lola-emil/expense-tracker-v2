@@ -1,18 +1,15 @@
 import { Component } from '@angular/core';
 import { EChartsOption } from 'echarts';
-import { NgxEchartsDirective, NgxEchartsModule } from 'ngx-echarts';
-import { LinearGradientObject } from 'echarts';
+import { NgxEchartsDirective } from 'ngx-echarts';
+
 @Component({
-  selector: 'app-line-chart',
+  selector: 'app-bar-chart',
   standalone: true,
-  imports: [NgxEchartsDirective, NgxEchartsModule],
-  templateUrl: './line-chart.component.html',
-  styleUrl: './line-chart.component.css'
+  imports: [NgxEchartsDirective],
+  templateUrl: './bar-chart.component.html',
+  styleUrl: './bar-chart.component.css'
 })
-export class LineChartComponent {
-
-
-
+export class BarChartComponent {
   chartOptions: EChartsOption = {
     tooltip: {
       trigger: 'axis',
@@ -52,6 +49,4 @@ export class LineChartComponent {
 
     }],
   };
-
-
 }

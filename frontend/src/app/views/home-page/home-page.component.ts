@@ -1,16 +1,16 @@
 import { Component } from '@angular/core';
 import { UserLayoutComponent } from "../../shared/layout/user-layout/user-layout.component";
-import { LineChartComponent } from "../../shared/components/line-chart/line-chart.component";
 import { ToastComponent } from '../../shared/components/toast/toast.component';
 import { CurrencyPipe, NgClass } from "@angular/common";
 import { DoughnutChartComponent } from "../../shared/components/doughnut-chart/doughnut-chart.component";
+import { BarChartComponent } from "../../shared/components/bar-chart/bar-chart.component";
 
 
 
 @Component({
   selector: 'app-home-page',
   standalone: true,
-  imports: [UserLayoutComponent, LineChartComponent, ToastComponent, CurrencyPipe, DoughnutChartComponent, NgClass],
+  imports: [UserLayoutComponent, ToastComponent, CurrencyPipe, DoughnutChartComponent, NgClass, BarChartComponent],
   templateUrl: './home-page.component.html',
 })
 export class HomePageComponent {
