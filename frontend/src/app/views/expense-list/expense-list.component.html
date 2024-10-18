@@ -1,36 +1,18 @@
 <app-user-layout>
-  <div class="card bg-base-200 shadow">
-    <div class="card-body ">
-      <h3 class="text-xl mb-3">Overview</h3>
-      <div class="flex gap-5 justify-between">
-        <div>
-          <h3 class="text-4xl">{{ totalExpense | currency: 'PHP' }}</h3>
-          <p class="text-lg text-gray-600">Total Expense</p>
-        </div>
 
-        <div class="">
-          <h3 class="text-4xl text-center">13</h3>
-          <p class="text-lg text-gray-600">Pending Approvals</p>
-        </div>
+  <app-expense-overview />
 
-        <div>
-          <h3 class="text-4xl text-center">7</h3>
-          <p class="text-lg text-gray-600">Unsubmitted</p>
-        </div>
-      </div>
-    </div>
-  </div>
   <div class="card bg-base-200 mt-5 shadow">
     <div class="card-body">
       <div class="flex justify-between">
         <input type="text" class="input input-md w-96" placeholder="Search">
 
         <!-- Pagination -->
-          <div class="join">
-            <button class="join-item btn">«</button>
-            <button class="join-item btn">Page 1</button>
-            <button class="join-item btn">»</button>
-          </div>
+        <div class="join">
+          <button class="join-item btn">«</button>
+          <button class="join-item btn">Page 1</button>
+          <button class="join-item btn">»</button>
+        </div>
       </div>
       <br>
       <div class="overflow-x-auto">

@@ -4,13 +4,14 @@ import { ToastComponent } from '../../shared/components/toast/toast.component';
 import { CurrencyPipe, NgClass } from "@angular/common";
 import { DoughnutChartComponent } from "../../shared/components/doughnut-chart/doughnut-chart.component";
 import { BarChartComponent } from "../../shared/components/bar-chart/bar-chart.component";
+import { ExpenseOverviewComponent } from "../../shared/components/expense-overview/expense-overview.component";
 
 
 
 @Component({
   selector: 'app-home-page',
   standalone: true,
-  imports: [UserLayoutComponent, ToastComponent, CurrencyPipe, DoughnutChartComponent, NgClass, BarChartComponent],
+  imports: [UserLayoutComponent, ToastComponent, CurrencyPipe, DoughnutChartComponent, NgClass, BarChartComponent, ExpenseOverviewComponent],
   templateUrl: './home-page.component.html',
 })
 export class HomePageComponent {
