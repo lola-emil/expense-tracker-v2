@@ -1,0 +1,23 @@
+<dialog id="my_modal_1" class="modal">
+  <form (submit)="submitForm()" [formGroup]="formGroup" class="modal-box w-1/2">
+
+    <!-- Input sa Transaction Number -->
+    <label class="form-control w-full">
+      <div class="label">
+        <span class="label-text">Transaction Number</span>
+      </div>
+      <input type="text" class="input input-bordered w-full disabled:bg-base-100" value="TXN001" disabled />
+      <div class="label">
+
+      </div>
+    </label>
+
+    <div class="modal-action">
+      <button type="submit" class="btn btn-primary">Submit</button>
+      <form method="dialog">
+        <!-- if there is a button in form, it will close the modal -->
+        <button type="button" class="btn">Close</button>
+      </form>
+    </div>
+  </form>
+</dialog>

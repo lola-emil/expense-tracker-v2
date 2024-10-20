@@ -2,11 +2,13 @@ import { Component } from '@angular/core';
 import { UserLayoutComponent } from "../../shared/layout/user-layout/user-layout.component";
 import { CurrencyPipe } from "@angular/common";
 import { ExpenseOverviewComponent } from "../../shared/components/expense-overview/expense-overview.component";
+import { RouterLink } from '@angular/router';
+import { ExpenseFormModalComponent } from "../../shared/components/expense-form-modal/expense-form-modal.component";
 
 @Component({
   selector: 'app-expense-list',
   standalone: true,
-  imports: [UserLayoutComponent, CurrencyPipe, ExpenseOverviewComponent],
+  imports: [UserLayoutComponent, CurrencyPipe, ExpenseOverviewComponent, RouterLink, ExpenseFormModalComponent],
   templateUrl: './expense-list.component.html'
 })
 export class ExpenseListComponent {

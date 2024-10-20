@@ -1,0 +1,42 @@
+<app-user-layout>
+
+
+  <form [formGroup]="formGroup" class="flex w-full gap-5 mt-5">
+
+    <!-- Mao ni ang input para sa file -->
+    <div class="min-w-96">
+      <label for="image-input" class="cursor-pointer">
+        <div class="border-dashed border-2 card h-[calc(100vh-5.75rem)] border-gray-500 rounded">
+          <div class="card-body flex justify-center items-center">
+            Choose file
+          </div>
+        </div>
+      </label>
+      <input type="file" name="" id="image-input" class="hidden"
+        accept="application/pdf, image/gif, image/tiff, image/jpeg, image/png, image/bmp, image/webp, text/html">
+    </div>
+
+    <div class="flex-1 card bg-base-200">
+      <div class="card-body">
+
+        <!-- Input sa Transaction Number -->
+        <label class="form-control w-full">
+          <div class="label">
+            <span class="label-text">Transaction Number</span>
+          </div>
+          <input type="text" class="input input-bordered w-full disabled:bg-base-100" value="TXN001" disabled />
+          <div class="label">
+
+          </div>
+        </label>
+
+
+        <!-- Input para sa vendor -->
+        <label for="" class="form-control w-full">
+          <div class="label"><span class="label-text">Vendor</span></div>
+          <input type="text" class="input input-bordered w-full">
+        </label>
+      </div>
+    </div>
+  </form>
+</app-user-layout>

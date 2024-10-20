@@ -6,6 +6,7 @@ import { ExpenseListComponent } from './views/expense-list/expense-list.componen
 import { ExpenseDetailComponent } from './views/expense-detail/expense-detail.component';
 import { ProfileSettingComponent } from './views/profile-setting/profile-setting.component';
 import { GeneralSettingComponent } from './views/general-setting/general-setting.component';
+import { ExpenseFormComponent } from './views/expense-form/expense-form.component';
 
 export const routes: Routes = [
     {
@@ -24,6 +25,11 @@ export const routes: Routes = [
     },
 
     {
+      path: "add-expense",
+      component: ExpenseFormComponent
+    },
+
+    {
         path: "profile",
         component: ProfileSettingComponent
     },
@@ -37,7 +43,7 @@ export const routes: Routes = [
         path: "signin",
         component: SigninPageComponent
     },
-    
+
 
 
     // Page Not Found

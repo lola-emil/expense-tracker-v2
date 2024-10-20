@@ -4,9 +4,12 @@
   <br>
 
   <div class="flex gap-3">
-    <button (click)="updateByTime()" class="btn btn-sm btn-ghost" [ngClass]="{'btn-primary' : daily}">Daily</button>
-    <button (click)="updateByTime()" class="btn btn-sm btn-ghost">Weekly</button>
-    <button (click)="updateByTime()" class="btn btn-sm btn-ghost">Monthly</button>
+<button (click)="updateByTime('daily')"
+  [ngClass]="currentFilter === 'daily' ? 'btn btn-sm btn-primary' : 'btn btn-sm btn-ghost'">Daily</button>
+<button (click)="updateByTime('weekly')"
+  [ngClass]="currentFilter === 'weekly' ? 'btn btn-sm btn-primary' : 'btn btn-sm btn-ghost'">Weekly</button>
+<button (click)="updateByTime('monthly')"
+  [ngClass]="currentFilter === 'monthly' ? 'btn btn-sm btn-primary' : 'btn btn-sm btn-ghost'">Monthly</button>
   </div>
   <div class="flex w-full gap-5 mt-5">
 
@@ -14,16 +17,15 @@
     <div class="flex-1 flex flex-col gap-5">
 
 
-      <app-expense-overview/>
+      <app-expense-overview />
 
-      <!-- Line chart container  -->
+      <!-- Bar chart container  -->
       <div class="card bg-base-200 shadow">
         <div class="card-body">
           <h3 class="text-xl">Statistics</h3>
 
           <div>
-            <!-- Mao ni diri ang line chart -->
-
+            <!-- Mao ni diri ang bar chart -->
             <app-bar-chart />
           </div>
         </div>

@@ -7,11 +7,15 @@
       <div class="flex justify-between">
         <input type="text" class="input input-md w-96" placeholder="Search">
 
-        <!-- Pagination -->
-        <div class="join">
-          <button class="join-item btn">«</button>
-          <button class="join-item btn">Page 1</button>
-          <button class="join-item btn">»</button>
+        <div class="flex gap-5">
+          <!-- <a routerLink="/add-expense" class="btn btn-primary">Add Expense</a> -->
+          <button onclick="my_modal_1.showModal()" class="btn btn-primary">Add Expense</button>
+          <!-- Pagination -->
+          <div class="join">
+            <button class="join-item btn">«</button>
+            <button class="join-item btn">Page 1</button>
+            <button class="join-item btn">»</button>
+          </div>
         </div>
       </div>
       <br>
@@ -55,3 +59,9 @@
     </div>
   </div>
 </app-user-layout>
+
+
+<!-- Open the modal using ID.showModal() method -->
+<!-- <button class="btn" onclick="my_modal_1.showModal()">open modal</button> -->
+
+<app-expense-form-modal style="width: 100%;" />

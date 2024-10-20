@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { UserLayoutComponent } from "../../shared/layout/user-layout/user-layout.component";
 import { ToastComponent } from '../../shared/components/toast/toast.component';
 import { CurrencyPipe, NgClass } from "@angular/common";
@@ -14,12 +14,9 @@ import { ExpenseOverviewComponent } from "../../shared/components/expense-overvi
   imports: [UserLayoutComponent, ToastComponent, CurrencyPipe, DoughnutChartComponent, NgClass, BarChartComponent, ExpenseOverviewComponent],
   templateUrl: './home-page.component.html',
 })
-export class HomePageComponent {
+export class HomePageComponent implements OnDestroy {
 
-  // State sa time filter
-  daily = true;
-  monthly = false;
-  yearly = false;
+  constructor() { }
 
   totalExpense = 823.63;
 
@@ -70,8 +67,15 @@ export class HomePageComponent {
     },
   ];
 
+  currentFilter: 'daily' | 'weekly' | 'monthly' = 'daily';
 
-  updateByTime() {
-    console.log("Hello, World");
+  updateByTime(state: 'daily' | 'monthly' | 'weekly') {
+    this.currentFilter = state;
   }
+
+
+  ngOnDestroy(): void {
+
+  }
+
 }
